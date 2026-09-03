@@ -1,64 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
-    <title>Contato - Doki Doki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Doki Doki Literature Club</title>
 </head>
-
 <body>
+<header>
+    <h1>🌸 Entre em contato 🌸</h1>
+    <p>Envie uma mensagem para o Clube de Literatura.</p>
+</header>
+<nav>
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="personagens.html">Personagens</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="serviços.html">Serviços</a>
+    <a href="contato-nos.html">Contato</a>
+    <a href="ouvidoria.html">Ouvidoria</a>
+    <a href="parceiros.html">Parceiros</a>
+    <a href="portfólio.html">Portfólio</a>
+    <a href="curriculo.html">Currículo</a>
+</nav>
+<main>
 
-    <header>
+<section class="card">
+    <h2>📨 Formulário 1 — Entre em contato</h2>
+    <form action="#" method="post">
+        <label for="nome">Nome:</label><br>
+        <input type="text" id="nome" name="nome" required><br><br>
 
-        <h1>💖 Entre em contato com o Clube 💖</h1>
+        <label for="email">E-mail:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
 
-        <p>
-            Gostaria de participar do clube?
-            <br>
-            Entre em contato conosco!
-        </p>
+        <label for="personagem">Personagem favorita:</label><br>
+        <select id="personagem" name="personagem">
+            <option value="sayori">Sayori</option>
+            <option value="monika">Monika</option>
+            <option value="yuri">Yuri</option>
+            <option value="natsuki">Natsuki</option>
+        </select><br><br>
 
-    </header>
+        <label for="assunto">Assunto:</label><br>
+        <input type="text" id="assunto" name="assunto" required><br><br>
 
-    <hr>
+        <label for="mensagem">Mensagem:</label><br>
+        <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva sua mensagem..." required></textarea><br><br>
 
-    <nav>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar">
+    </form>
+</section>
 
-        <a href="index.html">Início</a> |
-        <a href="sobre.html">Sobre</a> |
-        <a href="produtos.html">Produtos</a> |
-        <a href="contato-nos.html">Contato</a> |
-        <a href="serviços.html">Serviços</a> |
-        <a href="parceiros.html">Parceiros</a> |
-        <a href="portfólio.html">Portfólio</a>
-
-    </nav>
-
-    <hr>
-
-    <h2>📧 Informações</h2>
-
-    <p>
-        Clube de Literatura
-        <br>
-        Email: clube-literatura@email.com
-        <br>
-        Horário: Segunda a Sexta
-    </p>
-
-    <br>
-
-    <h2>🌸 Mensagem</h2>
-
-    <p>
-        Compartilhe seus poemas, histórias e ideias com os
-        membros do clube.
-    </p>
-
-    <hr>
-
-    <a href="index.html">← Voltar para o início</a>
-
+</main>
+<footer>
+    <p>Site desenvolvido para atividade de HTML.</p>
+    <p>Fã-site inspirado em Doki Doki Literature Club.</p>
+</footer>
 </body>
-
 </html>
