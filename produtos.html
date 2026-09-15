@@ -1,67 +1,163 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos - Clube de Literatura</title>
 </head>
+
 <body>
-<header>
-    <h1>🌸 Produtos do Clube 🌸</h1>
-    <p>Confira o catálogo de produtos temáticos.</p>
-</header>
-<nav>
-    <a href="index.html">Início</a>
-    <a href="sobre.html">Sobre</a>
-    <a href="personagens.html">Personagens</a>
-    <a href="produtos.html">Produtos</a>
-    <a href="serviços.html">Serviços</a>
-    <a href="contato-nos.html">Contato</a>
-    <a href="ouvidoria.html">Ouvidoria</a>
-    <a href="parceiros.html">Parceiros</a>
-    <a href="portfólio.html">Portfólio</a>
-    <a href="curriculo.html">Currículo</a>
-</nav>
-<main>
 
-<section class="card">
-    <h2>🎀 Catálogo de Produtos</h2>
-    <p>Confira os produtos fictícios disponíveis no site.</p>
+    <header>
 
-    <table border="1" cellpadding="8" cellspacing="0">
-        <tr>
-            <th>Produto</th>
-            <th>Descrição</th>
-            <th>Categoria</th>
-            <th>Preço</th>
-        </tr>
-        <tr>
-            <td>Livro de Poemas</td>
-            <td>Caderno especial para escrever poemas.</td>
-            <td>Literatura</td>
-            <td>R$ 25,00</td>
-        </tr>
-        <tr>
-            <td>Caderno do Clube</td>
-            <td>Caderno inspirado no Clube de Literatura.</td>
-            <td>Papelaria</td>
-            <td>R$ 20,00</td>
-        </tr>
-        <tr>
-            <td>Kit de Escrita</td>
-            <td>Conjunto fictício para quem gosta de escrever.</td>
-            <td>Escrita</td>
-            <td>R$ 35,00</td>
-        </tr>
-    </table>
+        <h1>🛒 Produtos</h1>
 
-    <p><a href="compra.html">🛒 Ir para o formulário de compra →</a></p>
-</section>
+        <p>
+            Produtos temáticos do Clube de Literatura.
+        </p>
 
-</main>
-<footer>
-    <p>Site desenvolvido para atividade de HTML.</p>
-    <p>Fã-site inspirado em Doki Doki Literature Club.</p>
-</footer>
+    </header>
+
+    <nav>
+
+        <a href="index.html">Início</a> |
+        <a href="sobre.html">Personagens</a> |
+        <a href="produtos.html">Produtos</a> |
+        <a href="serviços.html">Serviços</a> |
+        <a href="contato-nos.html">Contato</a> |
+        <a href="parceiros.html">Parceiros</a> |
+        <a href="portfólio.html">Portfólio</a> |
+        <a href="curriculo.html">Currículo</a>
+
+    </nav>
+
+    <main>
+
+        <section>
+
+            <h2>📦 Produtos disponíveis</h2>
+
+            <table border="1">
+
+                <thead>
+
+                    <tr>
+                        <th>Produto</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Livro de poemas</td>
+                        <td>Livro para escrever e guardar poemas.</td>
+                        <td>R$ 25,00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Caderno do clube</td>
+                        <td>Caderno temático para anotações.</td>
+                        <td>R$ 20,00</td>
+                    </tr>
+
+                    <tr>
+                        <td>Kit de escrita</td>
+                        <td>Kit para atividades literárias.</td>
+                        <td>R$ 30,00</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <section>
+
+            <h2>🛍️ Formulário de compra</h2>
+
+            <form>
+
+                <label for="nome">
+                    Nome:
+                </label>
+
+                <br>
+
+                <input
+                    type="text"
+                    id="nome"
+                    name="nome"
+                    required
+                >
+
+                <br><br>
+
+                <label for="email">
+                    E-mail:
+                </label>
+
+                <br>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+
+                <br><br>
+
+                <label for="produto">
+                    Escolha o produto:
+                </label>
+
+                <br>
+
+                <select id="produto" name="produto">
+
+                    <option>Livro de poemas</option>
+                    <option>Caderno do clube</option>
+                    <option>Kit de escrita</option>
+
+                </select>
+
+                <br><br>
+
+                <label for="quantidade">
+                    Quantidade:
+                </label>
+
+                <br>
+
+                <input
+                    type="number"
+                    id="quantidade"
+                    name="quantidade"
+                    min="1"
+                >
+
+                <br><br>
+
+                <button type="submit">
+                    Finalizar compra
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>🌸 Clube de Literatura</p>
+
+    </footer>
+
 </body>
 </html>
