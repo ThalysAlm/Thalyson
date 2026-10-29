@@ -1,0 +1,197 @@
+/* Layout geral do site Doki Doki */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #4a2635;
+    background: #fff0f5;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background: #f5a6c8;
+    color: #4a1830;
+    text-align: center;
+    padding: 22px 16px;
+}
+
+/* Menu horizontal */
+nav {
+    background: #d95791;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 7px 10px;
+    border-radius: 4px;
+}
+
+nav a:hover {
+    background: #a92e68;
+}
+
+/* Área central: barra lateral + conteúdo */
+body {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-areas:
+        "header header"
+        "nav nav"
+        "aside main"
+        "footer footer";
+    min-height: 100vh;
+}
+
+header { grid-area: header; }
+nav { grid-area: nav; }
+
+.sidebar, body > aside {
+    grid-area: aside;
+    background: #f8dce8;
+    padding: 18px;
+    border-right: 2px solid #efb5ce;
+}
+
+.sidebar h2, aside h2 {
+    font-size: 1.15rem;
+    color: #a92e68;
+    margin-top: 0;
+}
+
+.sidebar ul, aside ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sidebar li, aside li {
+    margin: 10px 0;
+}
+
+.sidebar a, aside a {
+    color: #8c2453;
+    text-decoration: none;
+}
+
+.sidebar a:hover, aside a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+main {
+    grid-area: main;
+    min-width: 0;
+    padding: 22px;
+}
+
+section, .card, article {
+    background: #fff;
+    margin: 0 0 20px;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px solid #f1c5d8;
+}
+
+h1, h2, h3 {
+    line-height: 1.25;
+}
+
+h2 {
+    color: #c23878;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.personagens {
+    text-align: center;
+}
+
+.personagens img, main img {
+    max-width: 220px;
+    margin: 8px;
+    border-radius: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    background: white;
+}
+
+th, td {
+    border: 1px solid #e5a8c3;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #f5a6c8;
+}
+
+input, select, textarea, button {
+    max-width: 100%;
+    font: inherit;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+button, input[type="submit"] {
+    background: #d95791;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 9px 14px;
+}
+
+footer {
+    grid-area: footer;
+    background: #d95791;
+    color: white;
+    text-align: center;
+    padding: 14px;
+}
+
+/* Em telas pequenas, a barra lateral fica acima do conteúdo */
+@media (max-width: 700px) {
+    body {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "header"
+            "nav"
+            "aside"
+            "main"
+            "footer";
+    }
+
+    nav {
+        align-items: center;
+    }
+
+    nav a {
+        padding: 6px 8px;
+    }
+
+    aside {
+        border-right: 0;
+        border-bottom: 2px solid #efb5ce;
+    }
+
+    main {
+        padding: 14px;
+    }
+}

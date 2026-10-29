@@ -1,30 +1,15 @@
-DOKI DOKI - VERSÃO COM CSS
+SITE DOKI DOKI — VERSÃO ATUALIZADA PARA A PRÁTICA
 
-Arquivos:
-- index.html
-- sobre.html
-- personagens.html
-- produtos.html
-- contato-nos.html
-- serviços.html
-- parceiros.html
-- portfólio.html
-- curriculo.html
-- style.css
+Esta versão reúne os três tipos de CSS estudados:
+- CSS externo: style.css compartilhado pelas páginas HTML e responsável pelo layout.
+- CSS interno/incorporado: bloco <style> no <head> do index.html.
+- CSS inline: atributos style em alguns elementos do index.html.
 
-IMAGENS:
-Coloque na pasta "imagens" as imagens que você já usava no projeto:
-- sayori.png
-- yuri.png
-- natsuki.png
-- monika.png
+Layout conforme o desenho do caderno:
+- Header: cabeçalho no topo.
+- Nav: menu horizontal abaixo do cabeçalho.
+- Aside: barra lateral à esquerda.
+- Main: conteúdo principal à direita.
+- Footer: rodapé na parte inferior.
 
-PRÁTICA DE CSS:
-- style.css: CSS externo usado em todas as páginas.
-- index.html: exemplos de CSS inline com style="...".
-- contato-nos.html: exemplo de CSS interno com <style>.
-- personagens.html: tabela estilizada com CSS.
-- contato-nos.html: formulário estilizado com CSS.
-
-A ideia é manter o site simples o suficiente para você entender o que cada regra faz,
-mas já deixar tabelas, formulários, menu, imagens e cartões visualmente melhores.
+O layout adapta-se a telas pequenas. Conteúdo, links e imagens existentes foram preservados.
