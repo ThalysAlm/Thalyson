@@ -1,6 +1,13 @@
-/* Layout geral do site Doki Doki */
+/* CSS externo - Doki Doki Literature Club
+   Atividades: agrupamento com Flexbox, posicionamento fixo,
+   camadas com z-index, menu dropdown e galeria interativa. */
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -9,6 +16,7 @@ body {
     color: #4a2635;
     background: #fff0f5;
     line-height: 1.6;
+    min-height: 100vh;
 }
 
 /* Cabeçalho */
@@ -19,17 +27,21 @@ header {
     padding: 22px 16px;
 }
 
-/* Menu horizontal */
+/* Menu principal */
 nav {
     background: #d95791;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 6px;
     padding: 12px;
+    position: relative;
+    z-index: 1000;
 }
 
-nav a {
+nav a,
+.dropdown > a {
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -37,61 +49,91 @@ nav a {
     border-radius: 4px;
 }
 
-nav a:hover {
+nav a:hover,
+.dropdown > a:hover {
     background: #a92e68;
 }
 
-/* Área central: barra lateral + conteúdo */
-body {
-    display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
-    grid-template-areas:
-        "header header"
-        "nav nav"
-        "aside main"
-        "footer footer";
-    min-height: 100vh;
+/* Menu dropdown pedido na atividade */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
-header { grid-area: header; }
-nav { grid-area: nav; }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 190px;
+    background: #fff;
+    border: 1px solid #efb5ce;
+    border-radius: 6px;
+    box-shadow: 0 5px 14px rgba(74, 38, 53, 0.18);
+    padding: 6px;
+}
 
-.sidebar, body > aside {
-    grid-area: aside;
+.dropdown-content a {
+    display: block;
+    color: #8c2453;
+    padding: 8px 10px;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background: #f8dce8;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+/* Conteúdo: a lateral fica fixa independente da rolagem */
+.sidebar {
+    position: fixed;
+    top: 140px;
+    left: 0;
+    width: 220px;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    z-index: 900;
     background: #f8dce8;
     padding: 18px;
+    padding-top: 24px;
     border-right: 2px solid #efb5ce;
 }
 
-.sidebar h2, aside h2 {
+.sidebar h2 {
     font-size: 1.15rem;
     color: #a92e68;
     margin-top: 0;
 }
 
-.sidebar ul, aside ul {
+.sidebar ul {
     list-style: none;
     padding-left: 0;
 }
 
-.sidebar li, aside li {
+.sidebar li {
     margin: 10px 0;
 }
 
-.sidebar a, aside a {
+.sidebar a {
     color: #8c2453;
     text-decoration: none;
 }
 
-.sidebar a:hover, aside a:hover {
+.sidebar a:hover {
     text-decoration: underline;
 }
 
-/* Conteúdo principal */
+/* Como a sidebar é fixa, o conteúdo reserva espaço para ela */
 main {
-    grid-area: main;
+    margin-left: 220px;
     min-width: 0;
     padding: 22px;
+    min-height: 60vh;
 }
 
 section, .card, article {
@@ -115,14 +157,91 @@ img {
     height: auto;
 }
 
+/* Agrupamento de elementos com Flexbox */
 .personagens {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 18px;
     text-align: center;
 }
 
-.personagens img, main img {
+.personagens h3 {
+    width: 100%;
+}
+
+.personagens img,
+main img {
     max-width: 220px;
     margin: 8px;
     border-radius: 6px;
+}
+
+/* Agrupamento das 7 imagens e organização em camadas */
+.galeria-sete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.galeria-explicacao {
+    max-width: 700px;
+    text-align: center;
+}
+
+.pilha-imagens {
+    position: relative;
+    width: min(420px, 90vw);
+    height: 330px;
+    margin: 10px auto 18px;
+}
+
+.imagem-camada {
+    position: absolute;
+    width: 170px;
+    height: 220px;
+    margin: 0;
+    object-fit: cover;
+    border: 4px solid white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(74, 38, 53, 0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* As 7 camadas usam z-index para formar a pilha */
+.imagem-camada:nth-child(1) { left: 50%; top: 5px; transform: translateX(-50%) rotate(-8deg); z-index: 1; }
+.imagem-camada:nth-child(2) { left: 50%; top: 15px; transform: translateX(-50%) rotate(7deg); z-index: 2; }
+.imagem-camada:nth-child(3) { left: 50%; top: 25px; transform: translateX(-50%) rotate(-5deg); z-index: 3; }
+.imagem-camada:nth-child(4) { left: 50%; top: 35px; transform: translateX(-50%) rotate(5deg); z-index: 4; }
+.imagem-camada:nth-child(5) { left: 50%; top: 45px; transform: translateX(-50%) rotate(-3deg); z-index: 5; }
+.imagem-camada:nth-child(6) { left: 50%; top: 55px; transform: translateX(-50%) rotate(3deg); z-index: 6; }
+.imagem-camada:nth-child(7) { left: 50%; top: 65px; transform: translateX(-50%); z-index: 7; }
+
+.imagem-camada:hover {
+    filter: brightness(1.05);
+}
+
+.imagem-camada.oculta {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.botao-mostrar {
+    background: #d95791;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 9px 14px;
+    font: inherit;
+    font-weight: bold;
+}
+
+.botao-mostrar:hover {
+    background: #a92e68;
 }
 
 table {
@@ -159,39 +278,77 @@ button, input[type="submit"] {
 }
 
 footer {
-    grid-area: footer;
+    margin-left: 220px;
     background: #d95791;
     color: white;
     text-align: center;
     padding: 14px;
 }
 
-/* Em telas pequenas, a barra lateral fica acima do conteúdo */
+/* Em telas pequenas, a lateral continua fixa, mas fica mais estreita */
 @media (max-width: 700px) {
-    body {
-        grid-template-columns: minmax(0, 1fr);
-        grid-template-areas:
-            "header"
-            "nav"
-            "aside"
-            "main"
-            "footer";
-    }
-
-    nav {
-        align-items: center;
-    }
-
-    nav a {
-        padding: 6px 8px;
-    }
-
-    aside {
-        border-right: 0;
-        border-bottom: 2px solid #efb5ce;
+    .sidebar {
+        top: 125px;
+        height: calc(100vh - 125px);
+        width: 155px;
+        padding: 12px;
+        font-size: 0.9rem;
     }
 
     main {
+        margin-left: 155px;
         padding: 14px;
+    }
+
+    footer {
+        margin-left: 155px;
+    }
+
+    nav {
+        padding: 8px;
+    }
+
+    nav a,
+    .dropdown > a {
+        padding: 6px 7px;
+        font-size: 0.9rem;
+    }
+
+    .dropdown-content {
+        position: fixed;
+        top: auto;
+        left: 155px;
+        margin-top: 0;
+    }
+
+    .imagem-camada {
+        width: 145px;
+        height: 190px;
+    }
+
+    .pilha-imagens {
+        height: 285px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        top: 125px;
+        height: calc(100vh - 125px);
+        width: 125px;
+        font-size: 0.82rem;
+    }
+
+    main {
+        margin-left: 125px;
+        padding: 10px;
+    }
+
+    footer {
+        margin-left: 125px;
+    }
+
+    header {
+        padding: 16px 8px;
     }
 }

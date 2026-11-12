@@ -1,74 +1,20 @@
-                                                    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Doki Doki Literature Club</title>
-
-    <!-- CSS incorporado (interno) -->
+    <!-- CSS interno: complementa o layout definido em style.css -->
     <style>
-        body {
-            background-color: #fff0f5;
-            color: #4a2635;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+        main section {
+            box-shadow: 0 2px 6px rgba(140, 36, 83, 0.08);
         }
-
-        header {
-            background-color: #f5a6c8;
-            padding: 25px;
-            text-align: center;
-        }
-
-        nav {
-            background-color: #d95791;
-            padding: 15px;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 10px;
-            font-weight: bold;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        section {
-            background-color: white;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 900px;
-        }
-
-        h2 {
-            color: #cc397b;
-        }
-
-        .personagens {
-            text-align: center;
-        }
-
-        .personagens img {
-            width: 200px;
-            max-width: 100%;
-            height: auto;
-            margin: 10px;
-            border-radius: 8px;
-        }
-
-        footer {
-            background-color: #d95791;
-            color: white;
-            text-align: center;
-            padding: 15px;
+        .personagens h3 {
+            color: #a92e68;
         }
     </style>
+
 </head>
 <body>
     <header>
@@ -79,7 +25,14 @@
     <nav>
         <a href="index.html">Início</a>
         <a href="sobre.html">Sobre</a>
-        <a href="personagens.html">Personagens</a>
+        <div class="dropdown">
+            <a href="personagens.html">Personagens ▾</a>
+            <div class="dropdown-content">
+                <a href="personagens.html">Todas as personagens</a>
+                <a href="index.html#galeria-sete">Galeria de 7 imagens</a>
+                <a href="sobre.html">Sobre o clube</a>
+            </div>
+        </div>
         <a href="produtos.html">Produtos</a>
         <a href="contato-nos.html">Contato</a>
         <a href="parceiros.html">Parceiros</a>
@@ -88,7 +41,24 @@
         <a href="curriculo.html">Currículo</a>
     </nav>
 
-    <main>
+    <aside class="sidebar">
+    <h2>Menu rápido</h2>
+    <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="sobre.html">Sobre o clube</a></li>
+        <li><div class="dropdown">
+            <a href="personagens.html">Personagens ▾</a>
+            <div class="dropdown-content">
+                <a href="personagens.html">Todas as personagens</a>
+                <a href="index.html#galeria-sete">Galeria de 7 imagens</a>
+                <a href="sobre.html">Sobre o clube</a>
+            </div>
+        </div></li>
+        <li><a href="produtos.html">Produtos</a></li>
+        <li><a href="contato-nos.html">Contato</a></li>
+    </ul>
+</aside>
+<main>
         <section>
             <h2>Bem-vindo ao clube!</h2>
             <p>Este site é dedicado a Doki Doki Literature Club, um jogo visual novel que mistura literatura, amizade e acontecimentos inesperados.</p>
@@ -114,6 +84,27 @@
                 <img src="imagens/monika.png" alt="Personagem Monika">
                 <p>A presidente do clube de literatura.</p>
             </div>
+        </section>
+
+        <section id="galeria-sete" class="galeria-sete">
+            <h2>Agrupamento de 7 imagens</h2>
+            <div class="galeria-explicacao">
+                <p>As imagens estão agrupadas em camadas. Clique em uma imagem para fazê-la desaparecer e observe as camadas de baixo. Use "Mostrar todas" para restaurar a pilha.</p>
+            </div>
+
+            <div class="pilha-imagens" id="pilhaImagens">
+                <img class="imagem-camada" src="imagens/sayori.png" alt="Sayori - camada 1" onclick="this.classList.add('oculta')">
+                <img class="imagem-camada" src="imagens/yuri.png" alt="Yuri - camada 2" onclick="this.classList.add('oculta')">
+                <img class="imagem-camada" src="imagens/natsuki.png" alt="Natsuki - camada 3" onclick="this.classList.add('oculta')">
+                <img class="imagem-camada" src="imagens/monika.png" alt="Monika - camada 4" onclick="this.classList.add('oculta')">
+                <img class="imagem-camada" src="imagens/sayori.png" alt="Sayori - camada 5" onclick="this.classList.add('oculta')">
+                <img class="imagem-camada" src="imagens/yuri.png" alt="Yuri - camada 6" onclick="this.classList.add('oculta')">
+                <img class="imagem-camada" src="imagens/monika.png" alt="Monika - camada 7" onclick="this.classList.add('oculta')">
+            </div>
+
+            <button class="botao-mostrar" type="button" onclick="document.querySelectorAll('.imagem-camada').forEach(function(img){img.classList.remove('oculta');})">
+                Mostrar todas
+            </button>
         </section>
 
         <section>
